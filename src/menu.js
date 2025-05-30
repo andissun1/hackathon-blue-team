@@ -32,7 +32,6 @@ export class ContextMenu extends Menu {
     this.el.innerHTML = sample.toHTML()
 
     console.log(this.el);
-    
-    // throw new Error(`"add" method should be implemented in Menu"`)
+  
   }
 }
