@@ -2,6 +2,7 @@ import {Menu} from './core/menu'
 import {BackgroundModule} from './modules/background.module'
 import {RandomMessageModule} from './modules/random.message.module'
 import {RandomSoundModule} from './modules/random.sound.module'
+import { ShapeModule } from "./modules/shape.module";
 
 export class ContextMenu extends Menu {
 
@@ -15,38 +16,33 @@ export class ContextMenu extends Menu {
         event.preventDefault()
         this.open(event.clientX, event.clientY) 
       })
-
-    document.body.addEventListener('click', ({target}) => {
-      
-      if (target.offsetParent === this.el) {
-
-        let findID = this.modules.findIndex((element) => {
-          return element.type == target.dataset.type
-        })
-
-        console.log('Find index %s', findID)
-        
-        if (findID > -1) {
-          this.modules[findID].trigger()
-        }
-
-      }
-
-    })
   }
 
   open(y, x) {
     const menu = document.querySelector('ul')
     menu.classList.toggle('open')
+    
     menu.style.top = `${x}px`;
     menu.style.left = `${y}px`;
   }
 
   close() {
-    this.el.classList.remove('open')
+
+    this.el.classList.remove("open");
+  }
+  
+  findIndex(event) {
+    console.log(event);
+    if (event.target.offsetParent === this.el) {
+      let findID = this.modules.findIndex((element) => {
+        return element.type === event.target.dataset.type;
+      });
+      this.modules[findID].trigger();
+    }
   }
 
   add() {
+    document.body.addEventListener("click", this.findIndex.bind(this));
 
     console.log('Add background module')
     const background_module = new BackgroundModule('Background', 'Случайный фон')
@@ -62,6 +58,10 @@ export class ContextMenu extends Menu {
     const random_sound_module = new RandomSoundModule('RandomSound', 'Рандомный звук')
     this.el.insertAdjacentHTML('beforeend', random_sound_module.toHTML())
     this.modules.push(random_sound_module)
+    
+    const click = new ShapeModule('Shape', "Нарисуй фигуру");
+    this.el.innerHTML += click.toHTML();
+    this.modules.push(click);
   };
 
 }
