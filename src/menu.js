@@ -2,26 +2,17 @@ import { Menu } from "./core/menu";
 import { BackgroundModule } from "./modules/background.module";
 import { ShapeModule } from "./modules/shape.module";
 import random from "./utils";
+import { Canvas } from "./modules/canvas.module";
 export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector);
     this.el = document.querySelector(selector);
     this.modules = [];
-
-    document.body.addEventListener("click", ({ target }) => {
-      if (target.offsetParent === this.el) {
-        let findID = this.modules.findIndex((element) => {
-          return element.type === +target.dataset.type;
-        });
-        this.modules[findID].trigger();
-      }
-    });
   }
 
   open(y, x) {
     const menu = document.querySelector("ul");
     menu.classList.toggle("open");
-
     menu.style.top = `${x}px`;
     menu.style.left = `${y}px`;
 
@@ -35,11 +26,21 @@ export class ContextMenu extends Menu {
   }
 
   add() {
-    const bg = new BackgroundModule(random(1, 99999999), "Случайный фон");
-    this.el.innerHTML += bg.toHTML();
-    this.modules.push(bg);
+    document.body.addEventListener("click", this.findIndex.bind(this));
     const click = new ShapeModule(random(1, 99999999), "Нарисуй фигуру");
     this.el.innerHTML += click.toHTML();
     this.modules.push(click);
+    const canvas = new Canvas(random(1, 99999999), "Карандаш");
+    this.el.innerHTML += canvas.toHTML();
+    this.modules.push(canvas);
+  }
+  findIndex(event) {
+    console.log(event);
+    if (event.target.offsetParent === this.el) {
+      let findID = this.modules.findIndex((element) => {
+        return element.type === +event.target.dataset.type;
+      });
+      this.modules[findID].trigger();
+    }
   }
 }

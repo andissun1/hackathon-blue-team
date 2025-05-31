@@ -54,7 +54,6 @@ body {
   border-radius: 50%;
 }
 
-/* HTML: <div class="triangle"></div> */
 .triangle {
   width: 180px;
   aspect-ratio: 1 / cos(30deg);

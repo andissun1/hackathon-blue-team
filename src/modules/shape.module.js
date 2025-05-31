@@ -47,6 +47,7 @@ export class ShapeModule extends Module {
     shape.style.position = `absolute`;
     shape.style.top = `${random(1, window.innerHeight)}px`;
     shape.style.left = `${random(1, window.innerWidth)}px`;
+
     document.body.append(shape);
   }
 }
