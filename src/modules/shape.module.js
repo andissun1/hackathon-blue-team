@@ -20,11 +20,6 @@ export class ShapeModule extends Module {
       `triangle`,
       `circle`,
       `squre`,
-      `blob`,
-      `wavy-circle`,
-      `flower`,
-      `polygon`,
-      `starburst`,
     ];
     let shape = document.createElement(`div`);
     shape.style.background = `linear-gradient(${random(
