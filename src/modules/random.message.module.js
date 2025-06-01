@@ -14,16 +14,28 @@ export class RandomMessageModule extends Module {
 
   getRandomPhrase() {
     const phrases = [
-      'The early bird catches the worm',
-      'Actions speak louder than words',
-      'Beauty is in the eye of the beholder',
-      "Don't count your chickens before they hatch",
-      'Every cloud has a silver lining',
-      'Fortune favors the bold',
-      'Honesty is the best policy',
-      'If the shoe fits, wear it',
-      'Knowledge is power',
-      'Look before you leap',
+      `— Сколько программистов нужно, чтобы вкрутить лампочку?
+      — Ни одного. Это hardware problem.`,
+      `— Вчера долго пыталась объяснить бабуле, что работаю программистом.
+      — Удалось?
+      — Короче, сошлись на том, что чиню телевизоры и развожу мышей.`,
+      `Работа программиста и шамана имеет много общего — оба бормочут непонятные слова, совершают непонятные действия и не могут объяснить, как оно работает.`,
+      `— Почему ваши дети всё время ссорятся?
+      — Конфликт версий, — отвечает программист.`,
+      `Один монитор — обычный программист, два монитора — продвинутый программист, три монитора — системный программист, четыре монитора — охранник.`,
+      `— В чём разница между null и undefined?
+      — null — это когда ты знаешь, что ничего нет.
+      undefined — это когда ты даже не знаешь, есть ли что-то.`,
+      `— Как отлаживают код настоящие мастера?
+      — console.log("Почему я здесь?");`,
+      `— В чём разница между let и const?
+      — let — это "может быть, потом поменяю".
+      const — это "клянусь, больше не трону (но потом всё равно поменяю)".`,
+      `— Раньше у нас был "Callback Hell".
+      Теперь у нас есть "Async/Await Heaven".
+      Но код всё равно выглядит как чистилище.`,
+      `— JavaScript:
+      "Пишешь код → Всё работает → Обновляешь браузер → Всё сломалось".`,
     ];
 
     return phrases[random(0, phrases.length - 1)];
@@ -47,6 +59,6 @@ export class RandomMessageModule extends Module {
         document.body.removeChild(this.messageElement);
         this.messageElement = null;
       }, 300);
-    }, 1500);
+    }, 9000);
   }
 }
