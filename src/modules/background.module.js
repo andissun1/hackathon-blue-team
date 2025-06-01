@@ -6,6 +6,7 @@ export class BackgroundModule extends Module {
   }
 
   trigger() {
+    document.body.style.backgroundImage = 'none'
     const randomColor = this.getRandomColor()
     document.body.style.backgroundColor = randomColor
 

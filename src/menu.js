@@ -3,6 +3,7 @@ import { BackgroundModule } from "./modules/background.module";
 import { RandomMessageModule } from "./modules/random.message.module";
 import { RandomSoundModule } from "./modules/random.sound.module";
 import { ShapeModule } from "./modules/shape.module";
+import { RandomImagesModule } from "./modules/random.images.background";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -40,32 +41,25 @@ export class ContextMenu extends Menu {
   add() {
     document.body.addEventListener("click", this.findIndex.bind(this));
 
-    console.log("Add background module");
-    const background_module = new BackgroundModule(
-      "Background",
-      "Случайный фон"
-    );
+    const background_module = new BackgroundModule("Background", "Случайный фон");
     this.el.insertAdjacentHTML("beforeend", background_module.toHTML());
     this.modules.push(background_module);
 
-    console.log("Add random message module");
-    const random_message_module = new RandomMessageModule(
-      "RandomMessage",
-      "Рандомное сообщение"
-    );
+    const random_message_module = new RandomMessageModule("RandomMessage", "Рандомное сообщение");
     this.el.insertAdjacentHTML("beforeend", random_message_module.toHTML());
     this.modules.push(random_message_module);
 
-    console.log("Add random sound module");
-    const random_sound_module = new RandomSoundModule(
-      "RandomSound",
-      "Рандомный звук"
-    );
+    const random_sound_module = new RandomSoundModule("RandomSound", "Рандомный звук");
     this.el.insertAdjacentHTML("beforeend", random_sound_module.toHTML());
     this.modules.push(random_sound_module);
 
     const shape = new ShapeModule("Shape", "Нарисуй фигуру");
     this.el.insertAdjacentHTML("beforeend", shape.toHTML());
     this.modules.push(shape);
+
+    const random_images_module = new RandomImagesModule("RandomImage", "Фон итальянского брейнрот")
+    this.el.insertAdjacentHTML("beforeend", random_images_module.toHTML())
+    this.modules.push(random_images_module)
+
   }
 }
