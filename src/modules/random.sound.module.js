@@ -16,7 +16,6 @@ export class RandomSoundModule extends Module {
   }
 
   trigger() {
-    
     const randomSoundUrl = this.sounds[random(0, this.sounds.length - 1)];
     const audio = new Audio(randomSoundUrl);
     audio.play();

@@ -10,7 +10,6 @@ export class RandomMessageModule extends Module {
 
     trigger() {
         const randomPhrase = this.getRandomPhrase();
-        console.log(randomPhrase);
         this.showMessage(randomPhrase);
     }
 
@@ -44,7 +43,6 @@ export class RandomMessageModule extends Module {
             this.messageElement.style.color = '#fff';
             this.messageElement.style.padding = '10px'; 
             this.messageElement.style.borderRadius = '10px';
-            this.messageElement.style.zIndex = '1000'; 
             this.messageElement.style.opacity = '1'; 
             this.messageElement.style.transition = 'opacity 0.8s ease'; 
             document.body.appendChild(this.messageElement);
