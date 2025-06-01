@@ -31,17 +31,7 @@ export class RandomMessageModule extends Module {
 
   showMessage(message) {
     if (!this.messageElement) {
-      this.messageElement = document.createElement('div');
-      this.messageElement.id = 'random-message';
-      this.messageElement.style.position = 'fixed';
-      this.messageElement.style.top = '20px';
-      this.messageElement.style.left = '20px';
-      this.messageElement.style.backgroundColor = '#333';
-      this.messageElement.style.color = '#fff';
-      this.messageElement.style.padding = '10px';
-      this.messageElement.style.borderRadius = '10px';
-      this.messageElement.style.opacity = '1';
-      this.messageElement.style.transition = 'opacity 0.8s ease';
+      this.messageElement = createMessage();
       document.body.appendChild(this.messageElement);
     }
 
