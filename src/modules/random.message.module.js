@@ -10,7 +10,6 @@ export class RandomMessageModule extends Module {
 
     trigger() {
         const randomPhrase = this.getRandomPhrase();
-        console.log(randomPhrase);
         this.showMessage(randomPhrase);
     }
 
