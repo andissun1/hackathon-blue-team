@@ -3,6 +3,7 @@ import { BackgroundModule } from "./modules/background.module";
 import { RandomMessageModule } from "./modules/random.message.module";
 import { RandomSoundModule } from "./modules/random.sound.module";
 import { ShapeModule } from "./modules/shape.module";
+import { TimerModule } from "./modules/timer.module";
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -67,5 +68,9 @@ export class ContextMenu extends Menu {
     const shape = new ShapeModule("Shape", "Нарисуй фигуру");
     this.el.insertAdjacentHTML("beforeend", shape.toHTML());
     this.modules.push(shape);
+
+    const timer = new TimerModule('Timer', 'Таймер');
+    this.el.insertAdjacentHTML("beforeend", timer.toHTML());
+    this.modules.push(timer);
   }
 }
