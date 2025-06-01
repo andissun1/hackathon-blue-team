@@ -1,0 +1,111 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+}
+
+.menu {
+  position: fixed;
+  z-index: 1000;
+  width: 150px;
+  background: #1b1a1a;
+  border-radius: 5px;
+  display: none;
+  list-style: none;
+}
+
+.menu.open {
+  display: block;
+}
+
+.menu .menu-item {
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+  border-radius: inherit;
+}
+
+.menu .menu-item:hover {
+  background: #343434;
+}
+
+/* Стили для фигур */
+
+.squre {
+  width: 150px;
+  height: 150px;
+}
+
+.rectangle {
+  width: 300px;
+  height: 150px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.triangle {
+  width: 180px;
+  aspect-ratio: 1 / cos(30deg);
+  clip-path: polygon(50% 100%, 100% 0, 0 0);
+}
+
+.rectangle {
+  width: 300px;
+  height: 150px;
+  transform: skew(15deg);
+}
+
+.trapezoid {
+  width: 200px;
+  border-left: 100px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+}
+
+/* Стили для кликера */
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 26px;
+
+  height: 30vw;
+  width: 40vw;
+
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+
+  background-color: #333;
+  color: #fff;
+  transition: opacity 0.8s ease;
+  user-select: none;
+}
+
+.active {
+  border: 5px solid wheat;
+}
+
+.gifClicker {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.405), rgba(0, 0, 0, 0.515)),
+    url(33d498b7991d3b67bd3f.gif);
+  background-size: cover;
+}
+
