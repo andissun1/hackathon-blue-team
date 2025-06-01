@@ -43,16 +43,16 @@ export class ContextMenu extends Menu {
   add() {
     document.body.addEventListener('click', this.findIndex.bind(this));
 
-    const background_module = new BackgroundModule(
-      'Background',
-      'Случайный фон'
-    );
+
+    // console.log("Add background module");
+    const background_module = new BackgroundModule('Background', 'Сменить фон');
+
     this.el.insertAdjacentHTML('beforeend', background_module.toHTML());
     this.modules.push(background_module);
     
     const random_message_module = new RandomMessageModule(
       'RandomMessage',
-      'Рандомное сообщение'
+      'Случайное сообщение'
     );
     this.el.insertAdjacentHTML('beforeend', random_message_module.toHTML());
     this.modules.push(random_message_module);
@@ -64,7 +64,7 @@ export class ContextMenu extends Menu {
     this.el.insertAdjacentHTML('beforeend', random_sound_module.toHTML());
     this.modules.push(random_sound_module);
 
-    const shape = new ShapeModule('Shape', 'Нарисуй фигуру');
+    const shape = new ShapeModule('Shape', 'Случайная фигура');
     this.el.insertAdjacentHTML('beforeend', shape.toHTML());
     this.modules.push(shape);
 

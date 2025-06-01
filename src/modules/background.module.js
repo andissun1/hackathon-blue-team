@@ -1,4 +1,5 @@
 import { Module } from '../core/module';
+import { getRandomColor } from '../utils';
 
 export class BackgroundModule extends Module {
   constructor(type, text) {
@@ -6,7 +7,6 @@ export class BackgroundModule extends Module {
   }
 
   trigger() {
-
     document.body.style.backgroundImage = 'none'
     const randomColor = this.getRandomColor()
     document.body.style.backgroundColor = randomColor
@@ -14,12 +14,5 @@ export class BackgroundModule extends Module {
 
   toHTML() {
     return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`;
-  }
-
-  getRandomColor() {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    return `rgb(${r}, ${g}, ${b})`;
   }
 }
