@@ -1,4 +1,4 @@
-import { Module } from "../core/module";
+import { Module } from '../core/module';
 
 export class Canvas extends Module {
   constructor(type, text) {

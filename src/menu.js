@@ -1,12 +1,11 @@
-
-import { Menu } from "./core/menu";
-import { BackgroundModule } from "./modules/background.module";
-import { RandomMessageModule } from "./modules/random.message.module";
-import { RandomSoundModule } from "./modules/random.sound.module";
-import { ShapeModule } from "./modules/shape.module";
-import { TimerModule } from "./modules/timer.module";
+import { Menu } from './core/menu';
+import { BackgroundModule } from './modules/background.module';
+import { RandomMessageModule } from './modules/random.message.module';
+import { RandomSoundModule } from './modules/random.sound.module';
+import { ShapeModule } from './modules/shape.module';
+import { TimerModule } from './modules/timer.module';
 import { ClicksModule } from './modules/clicks.module';
-import { RandomImagesModule } from "./modules/random.images.background";
+import { RandomImagesModule } from './modules/random.images.background';
 
 export class ContextMenu extends Menu {
   constructor(selector) {
@@ -43,20 +42,19 @@ export class ContextMenu extends Menu {
   add() {
     document.body.addEventListener('click', this.findIndex.bind(this));
 
-
     // console.log("Add background module");
     const background_module = new BackgroundModule('Background', 'Сменить фон');
 
     this.el.insertAdjacentHTML('beforeend', background_module.toHTML());
     this.modules.push(background_module);
-    
+
     const random_message_module = new RandomMessageModule(
       'RandomMessage',
       'Случайное сообщение'
     );
     this.el.insertAdjacentHTML('beforeend', random_message_module.toHTML());
     this.modules.push(random_message_module);
-    
+
     const random_sound_module = new RandomSoundModule(
       'RandomSound',
       'Рандомный звук'
@@ -69,7 +67,7 @@ export class ContextMenu extends Menu {
     this.modules.push(shape);
 
     const timer = new TimerModule('Timer', 'Таймер');
-    this.el.insertAdjacentHTML("beforeend", timer.toHTML());
+    this.el.insertAdjacentHTML('beforeend', timer.toHTML());
     this.modules.push(timer);
 
     const clicksCounter = new ClicksModule(
@@ -79,8 +77,11 @@ export class ContextMenu extends Menu {
     this.el.insertAdjacentHTML('beforeend', clicksCounter.toHTML());
     this.modules.push(clicksCounter);
 
-    const random_images_module = new RandomImagesModule("RandomImage", "Фон итальянского брейнрот")
-    this.el.insertAdjacentHTML("beforeend", random_images_module.toHTML())
-    this.modules.push(random_images_module)
+    const random_images_module = new RandomImagesModule(
+      'RandomImage',
+      'Фон итальянского брейнрот'
+    );
+    this.el.insertAdjacentHTML('beforeend', random_images_module.toHTML());
+    this.modules.push(random_images_module);
   }
 }
