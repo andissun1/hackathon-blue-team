@@ -10,7 +10,9 @@ export class ClicksModule extends Module {
   }
 
   trigger() {
-    if (this.messageElement) return;
+    if (this.messageElement) {
+      return console.log(this.messageElement);
+    }
     this.showMessage('На старт!');
     let { messageElement } = this;
 
@@ -37,7 +39,7 @@ export class ClicksModule extends Module {
           break;
         case 11:
           document.body.removeChild(messageElement);
-          messageElement = null;
+          this.messageElement = null;
       }
     }, 1000);
   }
