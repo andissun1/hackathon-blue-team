@@ -1,20 +1,17 @@
-import {Module} from '../core/module'
+import { Module } from '../core/module';
 
 export class BackgroundModule extends Module {
-    constructor(type, text) {
-    super(type, text)
+  constructor(type, text) {
+    super(type, text);
   }
 
   trigger() {
-    const randomColor = this.getRandomColor()
-    document.body.style.backgroundColor = randomColor
-
-
-    // throw new Error(`Trigger method should be implemented in module "${this.type}"`)
+    const randomColor = this.getRandomColor();
+    document.body.style.backgroundColor = randomColor;
   }
 
   toHTML() {
-    return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`
+    return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`;
   }
 
   getRandomColor() {
