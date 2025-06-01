@@ -10,9 +10,8 @@ export class ClicksModule extends Module {
   }
 
   trigger() {
-    if (this.messageElement) {
-      return console.log(this.messageElement);
-    }
+    if (this.messageElement) return;
+
     this.showMessage('На старт!');
     let { messageElement } = this;
 
